@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://global.media.stuxapis.net/icon.png">
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <meta name="description" content="StuxAPIs — Service Page">
+    <title>StuxAPIs — Service Page</title>
+        <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #121214; --bg-card: #1b1b1f; --border: rgba(255, 255, 255, 0.08);
+            --text-1: #f2f2f5; --text-2: rgba(242, 242, 245, 0.6); --text-3: rgba(242, 242, 245, 0.38);
+            --accent: #BF7FF9; --accent-bg: rgba(191, 127, 249, 0.12); --accent-bg-hover: rgba(191, 127, 249, 0.18);
+            --accent-border: rgba(191, 127, 249, 0.3); --accent-border-hover: rgba(191, 127, 249, 0.5);
+        }
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f7f4fb; --bg-card: #ffffff; --border: rgba(0, 0, 0, 0.08);
+                --text-1: #17121c; --text-2: rgba(23, 18, 28, 0.6); --text-3: rgba(23, 18, 28, 0.38);
+                --accent: #7a1fd6; --accent-bg: rgba(122, 31, 214, 0.08); --accent-bg-hover: rgba(122, 31, 214, 0.13);
+                --accent-border: rgba(122, 31, 214, 0.25); --accent-border-hover: rgba(122, 31, 214, 0.45);
+            }
+        }
+        :root.theme-light {
+            --bg: #f7f4fb; --bg-card: #ffffff; --border: rgba(0, 0, 0, 0.08);
+            --text-1: #17121c; --text-2: rgba(23, 18, 28, 0.6); --text-3: rgba(23, 18, 28, 0.38);
+            --accent: #7a1fd6; --accent-bg: rgba(122, 31, 214, 0.08); --accent-bg-hover: rgba(122, 31, 214, 0.13);
+            --accent-border: rgba(122, 31, 214, 0.25); --accent-border-hover: rgba(122, 31, 214, 0.45);
+        }
+        :root.theme-dark {
+            --bg: #121214; --bg-card: #1b1b1f; --border: rgba(255, 255, 255, 0.08);
+            --text-1: #f2f2f5; --text-2: rgba(242, 242, 245, 0.6); --text-3: rgba(242, 242, 245, 0.38);
+            --accent: #BF7FF9; --accent-bg: rgba(191, 127, 249, 0.12); --accent-bg-hover: rgba(191, 127, 249, 0.18);
+            --accent-border: rgba(191, 127, 249, 0.3); --accent-border-hover: rgba(191, 127, 249, 0.5);
+        }
+
+        html, body {
+            background: var(--bg); color: var(--text-1); font-family: 'Fredoka', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center; transition: background 0.3s, color 0.3s;
+        }
+
+        a, a:visited { color: var(--accent); text-decoration: none; }
+        a:hover, a:focus { opacity: 0.8; }
+
+        .wrapper { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 2rem 1.5rem; max-width: 560px; width: 100%; }
+
+        .chip {
+            display: inline-flex; align-items: center; gap: 7px; background: var(--accent-bg); border: 1px solid var(--accent-border);
+            border-radius: 100px; padding: 5px 14px 5px 10px; font-size: 11px; font-weight: 600; color: var(--accent);
+            letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 2rem;
+        }
+        .chip-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: blink 2.4s ease-in-out infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+
+        .logo { margin-bottom: 2rem; }
+        .logo img { max-height: 72px; height: auto; width: auto; }
+        .logo a { display: inline-block; opacity: 0.92; transition: opacity 0.2s, transform 0.2s; }
+        .logo a:hover { opacity: 1; transform: scale(1.03); }
+
+        .accent-bar { width: 44px; height: 3px; border-radius: 2px; background: var(--accent); margin: 0 auto 2rem; }
+
+        h1 { font-size: clamp(1.9rem, 5vw, 2.7rem); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 0.75rem; }
+        h1 em { font-style: normal; color: var(--accent); }
+
+        .card {
+            width: 100%; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
+            padding: 1.75rem 2rem; margin-top: 1.75rem; margin-bottom: 2.5rem;
+        }
+        .sub { font-size: 0.95rem; font-weight: 400; color: var(--text-2); line-height: 1.7; margin-bottom: 1.25rem; }
+        .card-label {
+            font-size: 0.78rem; font-weight: 600; color: var(--text-3); letter-spacing: 0.06em;
+            text-transform: uppercase; text-align: left; margin-bottom: 1rem;
+        }
+        .btn-list { display: flex; flex-direction: column; gap: 10px; }
+        .btn-list a {
+            display: flex; align-items: center; gap: 10px; padding: 11px 16px; border-radius: 10px; justify-content: center;
+            font-size: 14px; font-weight: 500; border: 1px solid var(--accent-border); background: var(--accent-bg); color: var(--accent);
+            transition: background 0.2s, border-color 0.2s;
+        }
+        .btn-list a:hover { background: var(--accent-bg-hover); border-color: var(--accent-border-hover); opacity: 1; }
+        .btn-list a svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+        #theme-toggle {
+            position: fixed; top: 14px; right: 14px; z-index: 100; background: var(--accent-bg); border: 1px solid var(--accent-border);
+            border-radius: 50%; width: 38px; height: 38px; font-size: 17px; line-height: 38px; text-align: center; cursor: pointer;
+            padding: 0; color: var(--accent); transition: background 0.2s, border-color 0.2s;
+        }
+        #theme-toggle:hover { background: var(--accent-bg-hover); border-color: var(--accent-border-hover); }
+
+        .footer-links { font-size: 0.8rem; color: var(--text-3); }
+    </style>
+</head>
+<body>
+    <button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle light/dark mode">&#9788;</button>
+
+    <div class="wrapper">
+        <div class="chip">
+            <span class="chip-dot">&#8203;</span>
+            No Service Here
+        </div>
+
+        <div class="logo">
+            <a href="https://stuxapis.net" target="_blank" rel="noopener" title="StuxAPIs">
+                <img src="https://global.media.stuxapis.net/logo.png" alt="StuxAPIs Logo" title="StuxAPIs Logo">
+            </a>
+        </div>
+
+        <div class="accent-bar"></div>
+
+        <h1>This service hasn't<br>been <em>set up yet.</em></h1>
+
+        <div class="card">
+            <p class="sub">Whoever runs this service hasn't set it up yet. Check back soon, or get in touch if that's you.</p>
+            <p class="card-label">In the meantime</p>
+            <div class="btn-list">
+                <a href="mailto:hello@stuxapis.net" title="Email StuxAPIs Support">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="2" y="4" width="20" height="16" rx="2" />
+                        <polyline points="2,4 12,13 22,4" />
+                    </svg>
+                    Contact Us for Support
+                </a>
+                <a href="https://stuxapis.net" target="_blank" rel="noopener" title="Browse StuxAPIs">
+                    <svg viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M2 12h20M12 2a15 15 0 010 20 15 15 0 010-20z" />
+                    </svg>
+                    Browse StuxAPIs
+                </a>
+            </div>
+        </div>
+
+        <p class="footer-links">
+            <a href="changelog" id="version-link">Changelog</a>
+            &middot;
+            <a href="legal">Boring Legal Stuff</a>
+        </p>
+    </div>
+
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var btn = document.getElementById('theme-toggle');
+            var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            var stored = localStorage.getItem('stuxapis-theme');
+            var isDark = stored ? stored === 'dark' : prefersDark;
+
+            function apply(dark) {
+                root.classList.toggle('theme-dark', dark);
+                root.classList.toggle('theme-light', !dark);
+                btn.textContent = dark ? '☀' : '☾';
+                btn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+            }
+
+            apply(isDark);
+
+            btn.addEventListener('click', function () {
+                isDark = !isDark;
+                localStorage.setItem('stuxapis-theme', isDark ? 'dark' : 'light');
+                apply(isDark);
+            });
+        })();
+    </script>
+    <script>
+        if (window.parent !== window) {
+            var parentOrigin = document.referrer ? new URL(document.referrer).origin : "*";
+            window.parent.postMessage(
+                { type: "page-title", title: document.title },
+                parentOrigin
+            );
+        }
+    </script>
+    <script>
+        fetch('VERSION.md')
+            .then(function (r) { return r.text(); })
+            .then(function (v) {
+                document.getElementById('version-link').textContent = 'v' + v.trim();
+            })
+            .catch(function () {});
+    </script>
+</body>
+</html>

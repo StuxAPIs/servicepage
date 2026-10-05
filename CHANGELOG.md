@@ -5,6 +5,12 @@ All notable changes to Service Page are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/) (MAJOR.MINOR.PATCH).
 
+## v1.0.6
+
+### Changed
+
+- README footer now matches the StuxAPIs `.github` footer ("Built & Maintained by StuxAPIs…" and "StuxAPIs is a part of the Stux.Group brand of businesses"), like every other StuxAPIs repository
+
 ## v1.0.5
 
 ### Changed

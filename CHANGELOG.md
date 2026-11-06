@@ -4,6 +4,14 @@ All notable changes to Service Page are documented here.
 
 Each release's sections follow a fixed order: Added, Changed, Fixed, Removed, Security, Deprecated. This project adheres to [Date Versioning](https://datevers.ing) since v26.10.23 (`YY.MM.DD`, the UTC release date, with `-1`, `-2`… for later releases the same day); earlier releases used [Semantic Versioning](https://semver.org/).
 
+## v26.11.06-1
+
+### Changed
+
+- CI (`.github/workflows/ci.yml`) also runs on pushes to `test`
+- `commit.sh` and `commit.bat` end by saying to push `test` and open a pull request into `main`
+- README (Versioning) and CONTRIBUTING (a new Branches section) describe the `test` branch flow: work and releases happen on `test`, and reach `main` only through a reviewed pull request that needs CI to pass
+
 ## v26.11.06
 
 ### Changed
